@@ -8,4 +8,8 @@ All of the interesting stuff is in index.php. dictionary.php is my hacked-togeth
 
 In conclusion, this is the first thing I've put on GitHub and the first code I've made public, and I have no idea what I'm doing.
 
+<<<<<<< HEAD
 hello@robertakarobin.com
+=======
+hello@robertakarobin.com
+>>>>>>> FETCH_HEAD
