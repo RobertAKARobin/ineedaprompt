@@ -73,7 +73,9 @@ foreach($objects as $objectNum => $object){
             switch($object["objectType"]){
                 case "noun": if($type == "adverb") $type = "adjective"; break;
                 case "verb": if($type == "adjective") $type = "adverb"; break;
-                case "location": if($type == "adverb") $type = "noun";
+                case "location":
+                    if(in_array($type,array("adverb","adjective"))) $type = "location";
+                    if($objectNum == count($objects) - 1) break;
                 default: $type = "noun"; $object["objectType"] = $type; break;
             }
         }
@@ -110,7 +112,7 @@ foreach($objects as $objectNum => $object){
     }else if($objectType == "verb"){
         if(
             $objects[$objectNum - 1]["objectType"] == "noun"
-          &&count($objects) > 2
+          &&count($objects) > 3
         ){
             $sentence[$objectNum] .= " who is";
         }
@@ -192,11 +194,11 @@ $reddit = "http://reddit.com/r/ineedaprompt/submit?selftext=true&title=" . urlen
 <body>
 <header>
 <form method="get" action="." target="_top" enctype="multipart/form-data">
-<h1><?php
+<h1><span><?php
 
 echo $result;
 
-?></h1>
+?></span></h1>
 <ul>
 <li><a href="<?php echo $twitter; ?>">Tweet it: &num;ineedaprompt</a></li>
 <li><a href="<?php echo $reddit; ?>">Post it to /r/ineedaprompt</a></li>
@@ -245,6 +247,7 @@ do{
 <li><a href="https://github.com/robertgfthomas/ineedaprompt">GitHub</a></li>
 <li><a href="http://www.robertakarobin.com">RobertAKARobin</a></li>
 <li><a href="mailto:hello@robertakarobin.com">Contact</a></li>
+<li><a href="https://twitter.com/search?f=realtime&q=ineedaprompt">#ineedaprompt</a></li>
 </ul>
 </nav>
 
