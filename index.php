@@ -56,6 +56,8 @@ foreach($order as $key => $val){
     $order[$key] = $val;
 }
 
+//$order = json_decode('["verb","noun","adjective","adverb","adverb","verb","adjective","verb","location","location","noun","noun","adjective","location","verb"]');
+
 //Split into objects by type (noun or verb).
 $objectNum = 0;
 foreach($order as $type){
@@ -106,7 +108,10 @@ foreach($objects as $objectNum => $object){
                 )
             ,$vowels) ? " an" : " a");
     }else if($objectType == "verb"){
-        if($objects[$objectNum - 1]["objectType"] == "noun"){
+        if(
+            $objects[$objectNum - 1]["objectType"] == "noun"
+          &&count($objects) > 2
+        ){
             $sentence[$objectNum] .= " who is";
         }
     }
