@@ -237,6 +237,7 @@ do{
 <ul>
 <li><label for="toggleDic">Dictionary</label></li>
 <li><label for="toggleApi">API</label></li>
+<li><a href="https://github.com/robertgfthomas/ineedaprompt">GitHub</a></li>
 <li><a href="http://www.robertakarobin.com">RobertAKARobin</a></li>
 <li><a href="mailto:hello@robertakarobin.com">Contact</a></li>
 </ul>
