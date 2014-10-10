@@ -1,6 +1,6 @@
 ineedaprompt
 ============
-INeedAPrompt.com has a dictionary of 500-ish words and phrases, and generates a writing or drawing prompt from those.
+www.INeedAPrompt.com has a dictionary of 500-ish words and phrases, and generates a writing or drawing prompt from those.
 
 The most difficult bit was figuring out how to make the prompts grammatically correct. Getting the script to add Oxford commas was a blast.
 
