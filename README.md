@@ -8,7 +8,7 @@ The most difficult bit was figuring out how to make the prompts grammatically co
 
 All of the interesting stuff is in index.php. dictionary.php is my hacked-together-in-2-minutes dashboard for adding and removing words to and from the dictionary.
 
-In conclusion, this is the first thing I've put on GitHub and the first code I've made public.
+This is the first thing I've put on GitHub and the first code I've made public.
 
 To do:
 
