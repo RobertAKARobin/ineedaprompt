@@ -171,8 +171,10 @@ foreach($sentence as $word){
 
 $result = ucfirst(trim($output)) . ".";
 
-$counter = file_get_contents("counter.txt") + 1;
-file_put_contents("counter.txt",$counter);
+if($counter = file_get_contents("counter.txt")){
+    $counter++;
+    file_put_contents("counter.txt", $counter);
+}
 
 if(isset($_GET["api"])) die($result);
 
@@ -185,6 +187,7 @@ $reddit = "http://reddit.com/r/ineedaprompt/submit?selftext=true&title=" . urlen
 <head>
 <meta charset="UTF-8" />
 <meta name="description" content="A prompt generator for drawing or writing." />
+<meta name="viewport" content="width=800" />
 <link rel="stylesheet" type="text/css" href="indexcss.css" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
@@ -229,17 +232,21 @@ do{
             $isChecked = "checked=\"checked\"";
             unset($newOrder[key($newOrder)]);
         }
-        echo "<li><input name=\"prompt[]\" value=\"$label\" type=\"checkbox\" id=\"$label\" $isChecked><label for=\"$label\">$type</label></li>" . PHP_EOL;
+        echo <<<EOF
+<li><input name="prompt[]" value="$label" type="checkbox" id="$label" $isChecked><label for="$label">$type</label></li>
+
+EOF;
     }
     $sentenceOrder = $newOrder;
 }while(count($newOrder) > 0);
 
 ?>
 </ul>
-<button type="submit"><span class="button">I need a prompt!</span><small><?php echo file_get_contents("counter.txt") ?></small></button>
+<button type="submit"><span class="button">I need a prompt!</span><small><?php echo $counter; ?></small></button>
 </form>
 </header>
 
+<main>
 <nav>
 <ul>
 <li><label for="toggleDic">Dictionary</label></li>
@@ -250,8 +257,6 @@ do{
 <li><a href="https://twitter.com/search?f=realtime&q=ineedaprompt">#ineedaprompt</a></li>
 </ul>
 </nav>
-
-<main>
 <input type="radio" name="toggle" id="toggleDic" />
 <article id="dictionary">
 <h2><label for="toggleDic">The INAP Dictionary</label></h2>
