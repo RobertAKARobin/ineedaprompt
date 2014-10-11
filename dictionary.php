@@ -2,6 +2,7 @@
 
 if(!$_POST) goto theend;
 
+//Obviously this isn't the slightest bit secure, but it doesn't need to be.
 $hashStuff = json_decode(file_get_contents("secret/hash.php"));
 
 if(hash_hmac("sha256",$_POST["password"],$hashStuff[0]) != $hashStuff[1]){
